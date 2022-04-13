@@ -1,22 +1,24 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum Axis
 {
     Side,
-    Forward
+    Forward,
+    MouseHorizontal,
+    MouseVertical
 }
 
-public class Controls
+public static class Controls
 {
-    public static KeyCode Left { get; private set; } = KeyCode.A;
-    public static KeyCode Right { get; private set; } = KeyCode.D;
-    public static KeyCode Jump => KeyCode.Space;
-    public static KeyCode Forward { get; private set; } = KeyCode.W;
-    public static KeyCode Backward { get; private set; } = KeyCode.S;
-    public static KeyCode PickUp { get; private set; } = KeyCode.E;
+    public static KeyCode Left { get; set; } = KeyCode.A;
+    public static KeyCode Right { get; set; } = KeyCode.D;
+    public static KeyCode Jump { get; set; } = KeyCode.Space;
+    public static KeyCode Forward { get; set; } = KeyCode.W;
+    public static KeyCode Back { get; set; } = KeyCode.S;
+    public static KeyCode Interact { get; set; } = KeyCode.E;
+    public static int MouseHorizontal { get; set; } = 1;
+    public static int MouseVertical { get; set; } = 1;
+    
 
     public static void Invert(Axis axis)
     {
@@ -26,8 +28,24 @@ public class Controls
                 (Left, Right) = (Right, Left);
                 break;
             case Axis.Forward:
-                (Forward, Backward) = (Backward, Forward);
+                (Forward, Back) = (Back, Forward);
+                break;
+            case Axis.MouseHorizontal:
+                MouseHorizontal *= -1;
+                break;
+            case Axis.MouseVertical:
+                MouseVertical *= -1;
                 break;
         }
+    }
+
+    public static void Reset()
+    {
+        Left = KeyCode.A;
+        Right = KeyCode.D;
+        Jump = KeyCode.Space;
+        Forward = KeyCode.W;
+        Back = KeyCode.S;
+        Interact = KeyCode.E;
     }
 }
