@@ -31,11 +31,11 @@ public class CharacterMechanics : MonoBehaviour
     }
     private void CharacterJump() 
     {
-        if (ch_controller.isGrounded && velocity.y < 0) 
+        if (velocity.y < 0 && ch_controller.isGrounded) 
         {
             velocity.y = -2f;
         }
-        if (ch_controller.isGrounded && Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && ch_controller.isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpPow * -2f * gravity);
         }
