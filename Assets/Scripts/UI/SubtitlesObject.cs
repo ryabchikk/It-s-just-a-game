@@ -26,10 +26,11 @@ internal class SubtitlesObject : MonoBehaviour
 
     public void Notify(string n)
     {
-        /*if (_notifications.Contains(n))
+        if (_notifications.Contains(n))
         {
             return;
-        }*/
+        }
+        
         _notifications.Enqueue(n);
     }
 

@@ -16,6 +16,8 @@ public class RoomRotater : MonoBehaviour
 {
     [SerializeField] Transform player_transform;
     [SerializeField] CharacterController controller;
+    [SerializeField] int time;
+    [SerializeField] bool isLocked;
     private Vector3 _rotation_vector;
     
     public static Vector3 WorldRotationVector(Ground ground) 
@@ -33,33 +35,49 @@ public class RoomRotater : MonoBehaviour
         }
     }
     
-    // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(TestCoroutine());
+        if (isLocked)
+            StartCoroutine(RotateByTime());
+        else 
+            StartCoroutine(GiveControl());
+        
     }
-    
-    IEnumerator TestCoroutine()
+    public IEnumerator Rotate() 
+    {
+        _rotation_vector = new Vector3(0, 0, 1);
+        for (int i = 0; i < 90; i++)
+        {
+            yield return null;
+            transform.Rotate(_rotation_vector);
+        }
+
+        Debug.Log("Room rotation: " + transform.rotation.eulerAngles);
+    }
+    IEnumerator GiveControl()
     {
         _rotation_vector = new Vector3(0, 0, 0);
         while (true)
         {
             yield return new WaitUntil(() => Input.GetKeyDown(Controls.RotateRoom));
-
-            _rotation_vector = new Vector3(0, 0, 1);
-            for (int i = 0; i < 90; i++)
-            {
-                yield return null;
-                transform.Rotate(_rotation_vector);
-            }
-
-            Debug.Log("Room rotation: " + transform.rotation.eulerAngles);
+            StartCoroutine(Rotate());
 
             //Vector3 new_gravity = Quaternion.Euler(WorldRotationVector((Ground)arr[index])) * Physics.gravity;
             //Vector3 new_gravity = Quaternion.AngleAxis(-90, this.transform.up) * Physics.gravity;
             //Physics.gravity = new_gravity;
-
             yield return new WaitForSeconds(2);
         }
-     }
+    }
+    IEnumerator RotateByTime()
+    {
+        _rotation_vector = new Vector3(0, 0, 0);
+        while (true)
+        {
+            yield return new WaitForSeconds(time);
+            StartCoroutine(Rotate());
+            //Vector3 new_gravity = Quaternion.Euler(WorldRotationVector((Ground)arr[index])) * Physics.gravity;
+            //Vector3 new_gravity = Quaternion.AngleAxis(-90, this.transform.up) * Physics.gravity;
+            //Physics.gravity = new_gravity;
+        }
+    }
 }

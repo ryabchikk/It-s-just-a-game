@@ -8,8 +8,6 @@ public class CharacterMechanics : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jumpPow;
     [SerializeField] private PlayerInteract interact;
-    
-    private Vector3 _moveVector;
     private bool _isOnGround;
     private CharacterController _characterController;
     private float _velocity;
@@ -21,21 +19,26 @@ public class CharacterMechanics : MonoBehaviour
     }
     void Update()
     {
-        //CharacterJump();
         CharacterMove();
         if(Input.GetKeyDown(Controls.Interact))
             interact.Interact();
     }
     private void CharacterMove()
     {
+        Vector3 _moveVector;
         _moveVector = Vector3.zero;
-        _moveVector.x = Input.GetAxis("Horizontal") * speed;
-        _moveVector.z = Input.GetAxis("Vertical") * speed;
-        _moveVector.y = VerticalVelocity();// * Time.deltaTime;
-        Vector3 move = transform.right * _moveVector.x + transform.forward * _moveVector.z + _moveVector.y * transform.up;
-        move *= Time.deltaTime;
-        //move = transform.TransformDirection(move);
-        _characterController.Move(move);
+        if (Input.GetKey(Controls.Forward))
+            _moveVector += transform.forward * speed;
+        else if (Input.GetKey(Controls.Back))
+            _moveVector -= transform.forward * speed;
+
+        if (Input.GetKey(Controls.Left))
+            _moveVector -= transform.right * speed;
+        else if (Input.GetKey(Controls.Right))
+            _moveVector += transform.right*speed;
+
+        _moveVector += VerticalVelocity() * transform.up;
+        _characterController.Move(_moveVector*Time.deltaTime);
     }
     private float VerticalVelocity() 
     {
