@@ -10,9 +10,9 @@ public class CharacterMechanics : MonoBehaviour
     [SerializeField] private PlayerInteract interact;
     
     private Vector3 _moveVector;
-    private float _gravForce;
+    private bool _isOnGround;
     private CharacterController _characterController;
-    private Vector3 _velocity;
+    private float _velocity;
     private float gravity = -9.81f;
 
     void Start()
@@ -21,7 +21,7 @@ public class CharacterMechanics : MonoBehaviour
     }
     void Update()
     {
-        CharacterJump();
+        //CharacterJump();
         CharacterMove();
         if(Input.GetKeyDown(Controls.Interact))
             interact.Interact();
@@ -31,20 +31,34 @@ public class CharacterMechanics : MonoBehaviour
         _moveVector = Vector3.zero;
         _moveVector.x = Input.GetAxis("Horizontal") * speed;
         _moveVector.z = Input.GetAxis("Vertical") * speed;
-        Vector3 move = transform.right * _moveVector.x + transform.forward * _moveVector.z;
-        _characterController.Move(move * Time.deltaTime);
+        _moveVector.y = VerticalVelocity();// * Time.deltaTime;
+        Vector3 move = transform.right * _moveVector.x + transform.forward * _moveVector.z + _moveVector.y * transform.up;
+        move *= Time.deltaTime;
+        //move = transform.TransformDirection(move);
+        _characterController.Move(move);
     }
-    private void CharacterJump() 
+    private float VerticalVelocity() 
     {
-        if (_velocity.y < 0 && _characterController.isGrounded) 
+        
+        /*if (_velocity < 0 && _isOnGround) 
         {
-            _velocity.y = -2f;
-        }
-        if (Input.GetKey(KeyCode.Space) && _characterController.isGrounded)
+            _velocity = -2f;
+        }*/
+        if (_isOnGround)
         {
-            _velocity.y = Mathf.Sqrt(jumpPow * -2f * gravity);
+            _velocity = -2f;
         }
-        _velocity.y += gravity * Time.deltaTime;
-        _characterController.Move(_velocity * Time.deltaTime);
+        if (Input.GetKey(KeyCode.Space) && _isOnGround)
+        {
+            //_isOnGround = false;
+            _velocity = Mathf.Sqrt(jumpPow * -2f * gravity);
+        }
+        _velocity += gravity * Time.deltaTime;
+        return _velocity;
+    }
+
+    public void SetOnGround(bool value)
+    {
+        _isOnGround = value;
     }
 }
