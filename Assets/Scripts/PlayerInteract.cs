@@ -5,7 +5,7 @@ public class PlayerInteract : MonoBehaviour
 {
     public GameObject Player => player;
     public float InteractDistance => interactDistance;
-    public Vector3 InteractDistancePosition => transform.position + transform.forward * interactDistance;
+    public Vector3 InteractDistancePosition => transform.position + camera.forward * interactDistance;
     [SerializeField] private float interactDistance;
     [SerializeField] private GameObject player;
     [SerializeField] private new Transform camera;
