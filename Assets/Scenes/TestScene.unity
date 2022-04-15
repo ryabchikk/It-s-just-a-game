@@ -1317,12 +1317,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1772762749}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dcdf784ad856b648baa80ca81c28fdf, type: 3}
+  m_Script: {fileID: 11500000, guid: 662f28587a626e24e99b42f4a5c6d635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message:
-  - sdddddddddddddddddddddddddd
-  - ssssssssssssssss
+  message: []
 --- !u!65 &1772762751
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1415,7 +1413,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1772762750}
-        m_TargetAssemblyTypeName: ActivateSubtitles, Assembly-CSharp
+        m_TargetAssemblyTypeName: Utility, Assembly-CSharp
         m_MethodName: Reverse
         m_Mode: 1
         m_Arguments:
