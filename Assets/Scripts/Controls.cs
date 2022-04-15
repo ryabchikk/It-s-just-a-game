@@ -16,6 +16,7 @@ public static class Controls
     public static KeyCode Forward { get; set; } = KeyCode.W;
     public static KeyCode Back { get; set; } = KeyCode.S;
     public static KeyCode Interact { get; set; } = KeyCode.E;
+    public static KeyCode RotateRoom { get; set; } = KeyCode.Q;
     public static int MouseHorizontal { get; set; } = 1;
     public static int MouseVertical { get; set; } = 1;
     

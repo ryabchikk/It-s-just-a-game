@@ -11,7 +11,6 @@ public class GroundChecker : MonoBehaviour
     {
         if (other != null)
         {
-            Debug.Log("not on ground!");
             player.SetOnGround(false);
         }
     }
@@ -20,8 +19,6 @@ public class GroundChecker : MonoBehaviour
     {
         if (other != null && other != playerCollider)
         {
-            Debug.Log("on ground");
-            Debug.Log(other.gameObject.name);
             player.SetOnGround(true);
         }
     }
