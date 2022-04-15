@@ -27,5 +27,13 @@ public class ButtonManager : MonoBehaviour
     {
         Application.Quit();
     }
+    public void OpenPausePanel(GameObject obj) 
+    {
+        if (Input.GetKeyDown(KeyCode.Escape)) 
+        {
+            obj.SetActive(true);
+            Time.timeScale = 0;
+        }
+    }
 }
 
