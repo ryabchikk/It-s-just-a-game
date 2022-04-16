@@ -5,10 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Pickable : MonoBehaviour, IInteractable
 {
-    [SerializeField] int freezeDelay = 1;
+    public bool IsPickedUp => _isPickedUp;
+    
+    [SerializeField] private int freezeDelay = 1;
 
     private bool _isPickedUp;
-    private float _distance;
     private Rigidbody _rigidbody;
     private PlayerInteract _interactingObject;
 
@@ -27,7 +28,6 @@ public class Pickable : MonoBehaviour, IInteractable
     {
         if(!_isPickedUp)
         {
-            _distance = interactingObject.InteractDistance;
             _interactingObject = interactingObject;
             _isPickedUp = true;
             _rigidbody.freezeRotation = true;
@@ -37,11 +37,6 @@ public class Pickable : MonoBehaviour, IInteractable
             _isPickedUp = false;
             _rigidbody.freezeRotation = false;
         }
-    }
-
-    public bool IsPickedUp
-    {
-        get { return _isPickedUp; }
     }
 
     public IEnumerator FreezePhysics()
