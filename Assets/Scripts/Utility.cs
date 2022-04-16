@@ -18,4 +18,12 @@ public class Utility : MonoBehaviour
         Controls.Invert(Axis.Forward);
         Controls.Invert(Axis.Side);
     }
+    public void ActivateObjects(GameObject[] objs)
+    {
+        for (int i = 0; i < message.Length; i++)
+        {
+            objs[i].SetActive(true);
+        }
+    }
+
 }

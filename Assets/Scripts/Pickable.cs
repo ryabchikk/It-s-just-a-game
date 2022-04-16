@@ -1,9 +1,12 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Pickable : MonoBehaviour, IInteractable
 {
+    [SerializeField] int freezeDelay = 1;
+
     private bool _isPickedUp;
     private float _distance;
     private Rigidbody _rigidbody;
@@ -34,5 +37,17 @@ public class Pickable : MonoBehaviour, IInteractable
             _isPickedUp = false;
             _rigidbody.freezeRotation = false;
         }
+    }
+
+    public bool IsPickedUp
+    {
+        get { return _isPickedUp; }
+    }
+
+    public IEnumerator FreezePhysics()
+    {
+        yield return new WaitForSeconds(freezeDelay); // For falling to finish
+
+        _rigidbody.isKinematic = true;
     }
 }

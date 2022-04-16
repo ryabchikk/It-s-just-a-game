@@ -2,39 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Ground
+public enum Direction
 {
-    Floor,
-    Ceiling,
-    LeftWall,
-    RightWall,
-    FrontWall,
-    BackWall
+    Down,
+    Up,
+    Left,
+    Right,
+    Front,
+    Back
 }
 
 public class RoomRotater : MonoBehaviour
 {
-    [SerializeField] Transform player_transform;
-    [SerializeField] CharacterController controller;
     [SerializeField] int time;
     [SerializeField] bool isLocked;
+    [SerializeField] bool changeGravity = false;
     private Vector3 _rotation_vector;
-    
-    public static Vector3 WorldRotationVector(Ground ground) 
+
+    public Direction[] Directions = new Direction[] { Direction.Front, Direction.Left, Direction.Left, Direction.Left, Direction.Front, Direction.Up };
+
+    public static Vector3 WorldRotationVector(Direction ground) 
     {
-        Vector3 vector = new Vector3(0, 0, 0);
         switch (ground)
         {
-            case Ground.Floor: return new Vector3(0, 0, 0); 
-            case Ground.Ceiling: return new Vector3(0, 0, 180);
-            case Ground.LeftWall: return new Vector3(90, 0, 0);
-            case Ground.RightWall: return new Vector3(-90, 0, 0);
-            case Ground.FrontWall: return new Vector3(0, 0, 90);
-            case Ground.BackWall: return new Vector3(0, 0, -90);
-                default: return vector;
+            case Direction.Down: return new Vector3(0, 0, 0); 
+            case Direction.Up: return new Vector3(0, 0, 2);
+            case Direction.Left: return new Vector3(-1, 0, 0);
+            case Direction.Right: return new Vector3(1, 0, 0);
+            case Direction.Front: return new Vector3(0, 0, 1);
+            case Direction.Back: return new Vector3(0, 0, -1);
+                default: return new Vector3(0, 0, 0);
         }
     }
-    
+
     void Start()
     {
         if (isLocked)
@@ -43,41 +43,49 @@ public class RoomRotater : MonoBehaviour
             StartCoroutine(GiveControl());
         
     }
-    public IEnumerator Rotate() 
+    public IEnumerator Rotate(Direction direction) 
     {
-        _rotation_vector = new Vector3(0, 0, 1);
+        _rotation_vector = WorldRotationVector(direction);
         for (int i = 0; i < 90; i++)
         {
             yield return null;
             transform.Rotate(_rotation_vector);
         }
 
-        Debug.Log("Room rotation: " + transform.rotation.eulerAngles);
+        if (changeGravity)
+        {
+            Physics.gravity = transform.up * -9.8f;
+        }
+
+        //Debug.Log("Room rotation: " + transform.rotation.eulerAngles);
     }
     IEnumerator GiveControl()
     {
-        _rotation_vector = new Vector3(0, 0, 0);
+        int index = 0;
         while (true)
         {
+            var direction = Directions[index];
+            //Debug.Log(direction);
             yield return new WaitUntil(() => Input.GetKeyDown(Controls.RotateRoom));
-            StartCoroutine(Rotate());
 
-            //Vector3 new_gravity = Quaternion.Euler(WorldRotationVector((Ground)arr[index])) * Physics.gravity;
-            //Vector3 new_gravity = Quaternion.AngleAxis(-90, this.transform.up) * Physics.gravity;
-            //Physics.gravity = new_gravity;
-            yield return new WaitForSeconds(2);
+            StartCoroutine(Rotate(direction));
+
+            yield return new WaitForSeconds(1);
+            index = (index + 1) % Directions.Length;
         }
     }
     IEnumerator RotateByTime()
     {
-        _rotation_vector = new Vector3(0, 0, 0);
+        int index = 0;
         while (true)
         {
+            var direction = Directions[index];
+            //Debug.Log(direction);
             yield return new WaitForSeconds(time);
-            StartCoroutine(Rotate());
-            //Vector3 new_gravity = Quaternion.Euler(WorldRotationVector((Ground)arr[index])) * Physics.gravity;
-            //Vector3 new_gravity = Quaternion.AngleAxis(-90, this.transform.up) * Physics.gravity;
-            //Physics.gravity = new_gravity;
+            
+            StartCoroutine(Rotate(direction));
+
+            index = (index + 1) % Directions.Length;
         }
     }
 }
