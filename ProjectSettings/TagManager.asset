@@ -8,6 +8,7 @@ TagManager:
   - white
   - yellow
   - red
+  - thorn
   layers:
   - Default
   - TransparentFX

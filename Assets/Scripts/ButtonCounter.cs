@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class ButtonCounter : MonoBehaviour
 {
-    [SerializeField] private int requestedCount = 3;
+    [SerializeField] private int requestedCount;
     [SerializeField] private UnityEvent onRequiredCount;
     [SerializeField] private UnityEvent onDecreasedCount;
     private int _buttonCount;

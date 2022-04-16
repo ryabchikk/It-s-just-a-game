@@ -44,7 +44,7 @@ public class Standable : MonoBehaviour
             return;
         if (other != _enteredCollider || _enteredPickable == null)
             return;
-        if (!_enteredPickable.IsPickedUp)
+        //if (!_enteredPickable.IsPickedUp)
         {
             _pressed = true;
             onPressed?.Invoke();
