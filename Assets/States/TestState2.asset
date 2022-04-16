@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece7c89613f21eb468ba277d1ba132f0, type: 3}
   m_Name: TestState2
   m_EditorClassIdentifier: 
-  storyText: "\u0441\u043B\u044B\u0448"
-  Buttons: []
+  storyText: "\u0411\u044D."
+  Buttons:
+  - "\u041A\u0442\u043E \u044D\u0442\u043E?"
   nextStates: []
