@@ -14,6 +14,8 @@ public class DialogueScript1 : MonoBehaviour
     [SerializeField] GameObject button1;
     [SerializeField] GameObject button2;
 
+    [SerializeField] private Sprite[] sprites;
+
 
     State state;
 
