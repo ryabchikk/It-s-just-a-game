@@ -14,8 +14,6 @@ public enum Direction
 
 public class RoomRotater : MonoBehaviour
 {
-    [SerializeField] Transform player_transform;
-    [SerializeField] CharacterController controller;
     [SerializeField] int time;
     [SerializeField] bool isLocked;
     [SerializeField] bool changeGravity = false;
@@ -59,7 +57,7 @@ public class RoomRotater : MonoBehaviour
             Physics.gravity = transform.up * -9.8f;
         }
 
-        Debug.Log("Room rotation: " + transform.rotation.eulerAngles);
+        //Debug.Log("Room rotation: " + transform.rotation.eulerAngles);
     }
     IEnumerator GiveControl()
     {
