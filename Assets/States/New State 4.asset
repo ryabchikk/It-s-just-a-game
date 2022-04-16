@@ -10,11 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ece7c89613f21eb468ba277d1ba132f0, type: 3}
-  m_Name: TestState2
+  m_Name: New State 4
   m_EditorClassIdentifier: 
-  storyText: "\u0411\u044D."
-  Buttons:
-  - "\u041A\u0442\u043E \u044D\u0442\u043E?"
-  nextStates:
-  - {fileID: 11400000, guid: 02e13066ac889ba41b8ad97b8ce35205, type: 2}
+  storyText: 
+  Buttons: []
+  nextStates: []
   final: 0

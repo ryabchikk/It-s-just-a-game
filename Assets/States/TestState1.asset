@@ -15,4 +15,6 @@ MonoBehaviour:
   storyText: "\u0414\u0430 \u043A\u0430\u043A \u0445\u043E\u0447\u0435\u0448\u044C."
   Buttons:
   - "\u0410?"
-  nextStates: []
+  nextStates:
+  - {fileID: 11400000, guid: dbd452996b5a13a439d5eafb6a0d6286, type: 2}
+  final: 0

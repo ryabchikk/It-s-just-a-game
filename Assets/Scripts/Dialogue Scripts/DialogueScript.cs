@@ -43,11 +43,26 @@ public class DialogueScript : MonoBehaviour
 
     public void SetScene()
     {
-        button1text.text = state.Buttons[0];
-        button2text.text = state.Buttons[1];
+        var nextStates = state.GetNextStates();
+        if(nextStates.Length == 1)
+        {
+            button2.SetActive(false);
+            button1text.text = state.Buttons[0];
+        }
+        if(nextStates.Length == 2)
+        {
+            button2.SetActive(true);
+            button1text.text = state.Buttons[0];
+            button2text.text = state.Buttons[1];
+        }
+        
     }
     public void FirstChoice()
     { 
+        if(state.final)
+        {
+            StopDialogue();
+        }
         var nextStates = state.GetNextStates();
         state = nextStates[0];
         textComponent.text = state.GetStateStory();
@@ -56,6 +71,10 @@ public class DialogueScript : MonoBehaviour
     }
     public void SecondChoice()
     {
+        if(state.final)
+        {
+            StopDialogue();
+        }
         var nextStates = state.GetNextStates();
         state = nextStates[1];
         textComponent.text = state.GetStateStory();

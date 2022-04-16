@@ -20,4 +20,7 @@ MonoBehaviour:
     \u0441\u043E \u0441\u0432\u043E\u0438\u043C \u0431\u0435\u0437\u0443\u043C\u0438\u0435\u043C?"
   - "\u041D\u0435\u0442, \u0447\u0442\u043E \u0442\u043E \u0442\u0443\u0442 \u043D\u0435
     \u0442\u0430\u043A\u2026."
-  nextStates: []
+  nextStates:
+  - {fileID: 11400000, guid: bffd4881e6ed493429bb396dd6eeaba8, type: 2}
+  - {fileID: 11400000, guid: 8a168ef93ac74fe429f34410cf4c8278, type: 2}
+  final: 0

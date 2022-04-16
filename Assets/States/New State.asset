@@ -16,4 +16,6 @@ MonoBehaviour:
     \u043E\u043B\u0443\u0445"
   Buttons:
   - "\u042F \u0441\u043E\u0448\u0435\u043B \u0441 \u0443\u043C\u0430?"
-  nextStates: []
+  nextStates:
+  - {fileID: 11400000, guid: d4b559dfe5a0bba4e94b7cad7bf3474e, type: 2}
+  final: 0
