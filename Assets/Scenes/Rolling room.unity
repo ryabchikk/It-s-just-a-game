@@ -2814,6 +2814,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player_transform: {fileID: 1373457064}
   controller: {fileID: 1373457063}
+  time: 0
+  isLocked: 0
+  changeGravity: 1
+  Directions: 040000000200000002000000020000000400000001000000
 --- !u!1 &1848873931
 GameObject:
   m_ObjectHideFlags: 0
