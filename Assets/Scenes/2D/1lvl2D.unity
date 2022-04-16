@@ -795,7 +795,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &533527871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -805,10 +805,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 533527870}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dc16d273849457408fc887c8418d23f, type: 3}
+  m_Script: {fileID: 11500000, guid: 20ee2613dc9e7be469a986daf1011da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onPressed:
+  onTrigger:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 533527872}
@@ -823,10 +823,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onUnpressed:
+      - m_Target: {fileID: 533527872}
+        m_TargetAssemblyTypeName: Utility, Assembly-CSharp
+        m_MethodName: Reverse
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  exitTrigger:
     m_PersistentCalls:
       m_Calls: []
-  boxFreezes: 0
 --- !u!114 &533527872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2268,6 +2279,7 @@ GameObject:
   - component: {fileID: 1814415922}
   - component: {fileID: 1814415920}
   - component: {fileID: 1814415921}
+  - component: {fileID: 1814415924}
   m_Layer: 0
   m_Name: End Trigger
   m_TagString: Untagged
@@ -2314,6 +2326,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1814415924}
+        m_TargetAssemblyTypeName: Utility, Assembly-CSharp
+        m_MethodName: Reverse
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   exitTrigger:
     m_PersistentCalls:
       m_Calls: []
@@ -2344,6 +2368,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1814415924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814415919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 662f28587a626e24e99b42f4a5c6d635, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: []
 --- !u!1 &1936857586
 GameObject:
   m_ObjectHideFlags: 0
