@@ -15,19 +15,32 @@ public class DialogueScript : MonoBehaviour
     [SerializeField] GameObject button1;
     [SerializeField] GameObject button2;
 
-
+    [SerializeField] MouseLook mouseLook;
     State state;
 
 	// Use this for initialization
 	void Start()
     {
+        background.SetActive(false);
+	}
+
+    public void StartDialogue()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         state = startingState;
         textComponent.text = state.GetStateStory();
         background.SetActive(true);
+        mouseLook.Deactivate();
         SetScene();
-	}
-	
-	// Update is called once per frame
+    }
+
+    public void StopDialogue()
+    {
+        background.SetActive(false);
+        mouseLook.Activate();
+    }
+
     public void SetScene()
     {
         button1text.text = state.Buttons[0];
