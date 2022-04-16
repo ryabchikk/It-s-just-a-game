@@ -8,8 +8,12 @@ public class Standable : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("triggered");
-        onPressed?.Invoke();
+        if (other.tag == "Player") 
+        { 
+            Debug.Log("triggered");
+            onPressed?.Invoke();
+        }
+        
     }
 
     private void OnTriggerExit(Collider other)
