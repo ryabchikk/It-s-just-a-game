@@ -16,6 +16,7 @@ public class Door : MonoBehaviour
 
     public void Close()
     {
+        Debug.Log("Closing the door...");
         if (_opened)
         {
             _opened = false;

@@ -22,7 +22,7 @@ public class ButtonCounter : MonoBehaviour
     {
         ButtonCount--;
         Debug.Log($"Current count: {ButtonCount}");
-        if (ButtonCount <= requestedCount)
+        if (ButtonCount == requestedCount - 1)
             onDecreasedCount?.Invoke();
     }
 }
