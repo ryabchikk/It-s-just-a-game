@@ -25,5 +25,4 @@ public class Utility : MonoBehaviour
             objs[i].SetActive(true);
         }
     }
-
 }

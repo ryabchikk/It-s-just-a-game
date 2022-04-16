@@ -6,6 +6,7 @@ using UnityEngine;
 public class Pickable : MonoBehaviour, IInteractable
 {
     public bool IsPickedUp => _isPickedUp;
+    public bool isPlaced { get; set; }
     
     [SerializeField] private int freezeDelay = 1;
 
@@ -16,6 +17,7 @@ public class Pickable : MonoBehaviour, IInteractable
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        isPlaced = false;
     }
 
     private void Update()
@@ -29,6 +31,7 @@ public class Pickable : MonoBehaviour, IInteractable
         if(!_isPickedUp)
         {
             _interactingObject = interactingObject;
+            _interactingObject.HoldedObject = this;
             _isPickedUp = true;
             _rigidbody.freezeRotation = true;
         }
