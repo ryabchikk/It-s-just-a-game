@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25beea0f1a1b8ae4bb5b339f785b9710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezeDelay: 1
 --- !u!65 &41459916
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -392,6 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25beea0f1a1b8ae4bb5b339f785b9710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezeDelay: 1
 --- !u!65 &114189118
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -467,6 +469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25beea0f1a1b8ae4bb5b339f785b9710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezeDelay: 1
 --- !u!1001 &131905339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1277,6 +1280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25beea0f1a1b8ae4bb5b339f785b9710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezeDelay: 1
 --- !u!65 &462696660
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1931,6 +1935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25beea0f1a1b8ae4bb5b339f785b9710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezeDelay: 1
 --- !u!65 &889744131
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2043,6 +2048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25beea0f1a1b8ae4bb5b339f785b9710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  freezeDelay: 1
 --- !u!65 &982015169
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2173,6 +2179,7 @@ MonoBehaviour:
   onUnpressed:
     m_PersistentCalls:
       m_Calls: []
+  boxFreezes: 0
 --- !u!1 &1069997372 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9be87cc9c1ddd6e48949e28cf9b53536, type: 3}
@@ -3063,6 +3070,7 @@ MonoBehaviour:
   onUnpressed:
     m_PersistentCalls:
       m_Calls: []
+  boxFreezes: 0
 --- !u!114 &1400696599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3997,6 +4005,7 @@ MonoBehaviour:
   onUnpressed:
     m_PersistentCalls:
       m_Calls: []
+  boxFreezes: 0
 --- !u!114 &1911986924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4354,10 +4363,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2112776152}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dc16d273849457408fc887c8418d23f, type: 3}
+  m_Script: {fileID: 11500000, guid: 20ee2613dc9e7be469a986daf1011da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onPressed:
+  onTrigger:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2112776154}
@@ -4372,19 +4381,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2112776154}
-        m_TargetAssemblyTypeName: Utility, Assembly-CSharp
-        m_MethodName: Reverse
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onUnpressed:
+  exitTrigger:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &2112776154
@@ -4401,6 +4398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   message:
   - "\u041D\u0435 \u043E\u0436\u0438\u0434\u0430\u043B \u0442\u0443\u0442 3D?"
+  - 222222222222222
 --- !u!65 &2112776155
 BoxCollider:
   m_ObjectHideFlags: 0
