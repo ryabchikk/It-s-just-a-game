@@ -12,14 +12,13 @@ public class Standable : MonoBehaviour
     private Collider _enteredCollider;
     private Pickable _enteredPickable;
     private bool _pressed;
-    private bool _active;
 
     private void Start()
     {
         _pressed = false;
         _enteredCollider = null;
         _enteredPickable = null;
-        _parent = this.transform.parent.gameObject;
+        _parent = transform.parent.gameObject;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -31,7 +30,7 @@ public class Standable : MonoBehaviour
             //Debug.Log("Not pickable!");
             return;
         }    
-        if (other.tag == _parent.tag)
+        if (other.CompareTag(_parent.tag))
         {
             _enteredCollider = other;
             _enteredPickable = pickable;
