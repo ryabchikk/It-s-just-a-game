@@ -18,6 +18,7 @@ public class BoxObserver : MonoBehaviour
                 break;
             }
         }
+        //Debug.Log(box.name);
         BoxBehaviour behaviour = box.GetComponent<BoxBehaviour>();
         behaviour.SetNPC();
     }

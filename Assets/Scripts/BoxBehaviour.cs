@@ -25,7 +25,7 @@ public class BoxBehaviour : MonoBehaviour, IInteractable
 
     public void Interact(PlayerInteract playerInteract)
     {
-        Debug.Log("Box behaviour Interact");
+        //Debug.Log("Box behaviour Interact");
         if (_isNPC)
         {
             _npc.Interact(playerInteract);
