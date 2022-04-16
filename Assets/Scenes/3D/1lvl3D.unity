@@ -3037,10 +3037,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1400696597}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dc16d273849457408fc887c8418d23f, type: 3}
+  m_Script: {fileID: 11500000, guid: 20ee2613dc9e7be469a986daf1011da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onPressed:
+  onTrigger:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1400696599}
@@ -3055,22 +3055,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1400696599}
-        m_TargetAssemblyTypeName: Utility, Assembly-CSharp
-        m_MethodName: Reverse
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onUnpressed:
+  exitTrigger:
     m_PersistentCalls:
       m_Calls: []
-  boxFreezes: 0
 --- !u!114 &1400696599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3984,10 +3971,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1911986922}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dc16d273849457408fc887c8418d23f, type: 3}
+  m_Script: {fileID: 11500000, guid: 20ee2613dc9e7be469a986daf1011da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onPressed:
+  onTrigger:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1911986924}
@@ -4002,10 +3989,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onUnpressed:
+  exitTrigger:
     m_PersistentCalls:
       m_Calls: []
-  boxFreezes: 0
 --- !u!114 &1911986924
 MonoBehaviour:
   m_ObjectHideFlags: 0
