@@ -2,10 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class DialogueScript : MonoBehaviour
 {
+    [SerializeField] private UnityEvent onDialogueFinished;
+
     [SerializeField] Text textComponent;
     [SerializeField] State startingState;
     [SerializeField] GameObject background;
@@ -39,6 +42,7 @@ public class DialogueScript : MonoBehaviour
     {
         background.SetActive(false);
         mouseLook.Activate();
+        onDialogueFinished?.Invoke();
     }
 
     public void SetScene()

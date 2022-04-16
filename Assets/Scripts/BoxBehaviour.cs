@@ -17,12 +17,6 @@ public class BoxBehaviour : MonoBehaviour, IInteractable
             Debug.Log("No npc script or pickable script");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Interact(PlayerInteract playerInteract)
     {
         //Debug.Log("Box behaviour Interact");
