@@ -65,7 +65,7 @@ public class RoomRotater : MonoBehaviour
         while (true)
         {
             var direction = Directions[index];
-            Debug.Log(direction);
+            //Debug.Log(direction);
             yield return new WaitUntil(() => Input.GetKeyDown(Controls.RotateRoom));
 
             StartCoroutine(Rotate(direction));
@@ -80,7 +80,7 @@ public class RoomRotater : MonoBehaviour
         while (true)
         {
             var direction = Directions[index];
-            Debug.Log(direction);
+            //Debug.Log(direction);
             yield return new WaitForSeconds(time);
             
             StartCoroutine(Rotate(direction));
