@@ -20,6 +20,12 @@ public class Utility : MonoBehaviour
         Controls.Invert(Axis.Forward);
         Controls.Invert(Axis.Side);
     }
+
+    public void ReverseJump()
+    {
+        Controls.NormalJump = !Controls.NormalJump;
+    }
+
     public void ActivateObjects()
     {
         for (int i = 0; i < activateObjs.Length; i++)

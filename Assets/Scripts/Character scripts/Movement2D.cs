@@ -46,7 +46,7 @@ public class Movement2D : MonoBehaviour
         {
             _velocity = -2f;
         }
-        if (Input.GetKey(KeyCode.Space) && _isOnGround)
+        if (Controls.ShoulJump() && _isOnGround)
         {
             //_isOnGround = false;
             _velocity = Mathf.Sqrt(jumpPow * -2f * gravity);

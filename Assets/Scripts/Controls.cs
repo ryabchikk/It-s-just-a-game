@@ -19,6 +19,8 @@ public static class Controls
     public static KeyCode RotateRoom { get; set; } = KeyCode.R;
     public static int MouseHorizontal { get; set; } = 1;
     public static int MouseVertical { get; set; } = 1;
+
+    public static bool NormalJump { get; set; } = true;
     
 
     public static void Invert(Axis axis)
@@ -37,6 +39,18 @@ public static class Controls
             case Axis.MouseVertical:
                 MouseVertical *= -1;
                 break;
+        }
+    }
+
+    public static bool ShoulJump()
+    {
+        if (NormalJump)
+        {
+            return Input.GetKey(Controls.Jump);
+        }
+        else
+        {
+            return !Input.GetKey(Controls.Jump);
         }
     }
 
