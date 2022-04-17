@@ -3632,7 +3632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 370559bfc4312f743a6e6198bc835eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onDialogueFinished:
+  onGoodEnding:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 997886220}
@@ -3659,6 +3659,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onBadEnding:
+    m_PersistentCalls:
+      m_Calls: []
   textComponent: {fileID: 1475339528}
   startingState: {fileID: 11400000, guid: a35742c8b47dce74ebe030e2fbe6030c, type: 2}
   background: {fileID: 1936752527}

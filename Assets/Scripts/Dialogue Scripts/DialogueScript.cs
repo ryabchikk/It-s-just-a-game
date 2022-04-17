@@ -7,7 +7,8 @@ using UnityEngine.UI;
 
 public class DialogueScript : MonoBehaviour
 {
-    [SerializeField] private UnityEvent onDialogueFinished;
+    [SerializeField] private UnityEvent onGoodEnding;
+    [SerializeField] private UnityEvent onBadEnding;
 
     [SerializeField] Text textComponent;
     [SerializeField] State startingState;
@@ -40,11 +41,16 @@ public class DialogueScript : MonoBehaviour
         SetScene();
     }
 
-    public void StopDialogue()
+    public void StopDialogue(bool isEndingGood)
     {
+        if (isEndingGood)
+            onGoodEnding?.Invoke();
+        else
+        {
+            onBadEnding?.Invoke();
+        }
         background.SetActive(false);
         mouseLook.Activate();
-        onDialogueFinished?.Invoke();
     }
 
     public void SetScene()
@@ -69,9 +75,15 @@ public class DialogueScript : MonoBehaviour
     }
     public void FirstChoice()
     { 
-        if(state.goodEnding || state.badEnding)
+        if(state.goodEnding)
         {
-            StopDialogue();
+            StopDialogue(true);
+            return;
+        }
+        if (state.badEnding)
+        {
+            StopDialogue(false);
+            return;
         }
         var nextStates = state.GetNextStates();
         state = nextStates[0];
@@ -81,9 +93,15 @@ public class DialogueScript : MonoBehaviour
     }
     public void SecondChoice()
     {
-        if(state.goodEnding || state.badEnding)
+        if (state.goodEnding)
         {
-            StopDialogue();
+            StopDialogue(true);
+            return;
+        }
+        if (state.badEnding)
+        {
+            StopDialogue(false);
+            return;
         }
         var nextStates = state.GetNextStates();
         state = nextStates[1];
