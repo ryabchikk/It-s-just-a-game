@@ -25,4 +25,10 @@ public class ButtonCounter : MonoBehaviour
         if (_buttonCount == requestedCount - 1)
             onDecreasedCount?.Invoke();
     }
+
+    public void UnsubscribeFirst()
+    {
+        Debug.Log("Unsubscibing");
+        onRequiredCount.SetPersistentListenerState(0, UnityEventCallState.Off);
+    }
 }

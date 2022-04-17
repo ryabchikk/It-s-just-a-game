@@ -5,6 +5,7 @@ using UnityEngine;
 public class BoxObserver : MonoBehaviour
 {
     [SerializeField] Pickable[] boxes;
+    private BoxBehaviour boxBehaviour;
 
     public void ActivateNPC()
     {
@@ -19,7 +20,12 @@ public class BoxObserver : MonoBehaviour
             }
         }
         //Debug.Log(box.name);
-        BoxBehaviour behaviour = box.GetComponent<BoxBehaviour>();
-        behaviour.SetNPC();
+        boxBehaviour = box.GetComponent<BoxBehaviour>();
+        boxBehaviour.SetNPC();
+    }
+
+    public void DeactivateNPC()
+    {
+        boxBehaviour.SetPickable();
     }
 }
