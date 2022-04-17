@@ -47,6 +47,7 @@ public class Standable : MonoBehaviour
         //if (!_enteredPickable.IsPickedUp)
         {
             _pressed = true;
+            _enteredPickable.isPlaced = true;
             onPressed?.Invoke();
             if (boxFreezes)
                 StartCoroutine(_enteredPickable.FreezePhysics());

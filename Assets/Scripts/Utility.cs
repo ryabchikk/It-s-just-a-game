@@ -27,6 +27,7 @@ public class Utility : MonoBehaviour
             activateObjs[i].SetActive(true);
         }
     }
+
     public void DestroyObjs() 
     {
         for (int i = 0; i < destroyObjs.Length; i++)
@@ -34,5 +35,4 @@ public class Utility : MonoBehaviour
             Destroy(activateObjs[i]);
         }
     }
-    //public void 
 }
