@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54c14f9f81591004c87f68f3b459d725, type: 3}
   m_Name: NS0
   m_EditorClassIdentifier: 
-  storyText: 
-  Buttons: []
-  nextStates: []
+  storyText: "\u042F \u0436\u0435\u043B\u0442\u044B\u0439 \u043A\u0443\u0431"
+  Buttons:
+  - "\u043B\u0430\u0434\u043D\u043E."
+  nextStates:
+  - {fileID: 11400000, guid: bb290eb6cab844b4b9825b989a9a8041, type: 2}
   sprite: 0

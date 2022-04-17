@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54c14f9f81591004c87f68f3b459d725, type: 3}
-  m_Name: NS1
+  m_Script: {fileID: 11500000, guid: ece7c89613f21eb468ba277d1ba132f0, type: 3}
+  m_Name: S41
   m_EditorClassIdentifier: 
-  storyText: "\u0410 \u044F \u043A\u0440\u0430\u0441\u043D\u044B\u0439 \u043A\u0443\u0431."
+  storyText: ....
   Buttons:
-  - "\u043E\u043A."
-  nextStates: []
-  sprite: 1
+  - ....
+  nextStates:
+  - {fileID: 11400000, guid: d803aa42a05006140b5de26477d9ff81, type: 2}
+  final: 0

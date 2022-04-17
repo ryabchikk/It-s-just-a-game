@@ -14,9 +14,11 @@ public class DialogueScript : MonoBehaviour
     [SerializeField] GameObject background;
     [SerializeField] Text button1text;
     [SerializeField] Text button2text;
+    [SerializeField] Text button3text;
 
     [SerializeField] GameObject button1;
     [SerializeField] GameObject button2;
+    [SerializeField] GameObject button3;
 
     [SerializeField] MouseLook mouseLook;
     State state;
@@ -50,12 +52,16 @@ public class DialogueScript : MonoBehaviour
         var nextStates = state.GetNextStates();
         if(nextStates.Length == 1)
         {
+            button1.SetActive(false);
             button2.SetActive(false);
-            button1text.text = state.Buttons[0];
+            button3.SetActive(true);
+            button3text.text = state.Buttons[0];
         }
         if(nextStates.Length == 2)
         {
+            button1.SetActive(true);
             button2.SetActive(true);
+            button3.SetActive(false);
             button1text.text = state.Buttons[0];
             button2text.text = state.Buttons[1];
         }
