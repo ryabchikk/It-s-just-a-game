@@ -14,11 +14,13 @@ public enum Direction
 
 public class RoomRotater : MonoBehaviour
 {
-    [SerializeField] Transform player_transform;
-    [SerializeField] CharacterController controller;
+    [SerializeField] int time;
+    [SerializeField] bool isLocked;
     [SerializeField] bool changeGravity = false;
     private Vector3 _rotation_vector;
-    
+
+    public Direction[] Directions = new Direction[] { Direction.Front, Direction.Left, Direction.Left, Direction.Left, Direction.Front, Direction.Up };
+
     public static Vector3 WorldRotationVector(Direction ground) 
     {
         switch (ground)
@@ -33,37 +35,57 @@ public class RoomRotater : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(TestCoroutine());
+        if (isLocked)
+            StartCoroutine(RotateByTime());
+        else 
+            StartCoroutine(GiveControl());
+        
     }
-    
-    IEnumerator TestCoroutine()
+    public IEnumerator Rotate(Direction direction) 
     {
-        var directions = new Direction[] { Direction.Front, Direction.Left, Direction.Left, Direction.Left, Direction.Front, Direction.Up };
+        _rotation_vector = WorldRotationVector(direction);
+        for (int i = 0; i < 90; i++)
+        {
+            yield return null;
+            transform.Rotate(_rotation_vector);
+        }
+
+        if (changeGravity)
+        {
+            Physics.gravity = transform.up * -9.8f;
+        }
+
+        //Debug.Log("Room rotation: " + transform.rotation.eulerAngles);
+    }
+    IEnumerator GiveControl()
+    {
         int index = 0;
         while (true)
         {
-            var direction = directions[index];
-            Debug.Log(direction);
+            var direction = Directions[index];
+            //Debug.Log(direction);
             yield return new WaitUntil(() => Input.GetKeyDown(Controls.RotateRoom));
 
-            _rotation_vector = WorldRotationVector(direction);
-
-            for (int i = 0; i < 90; i++)
-            {
-                yield return null;
-                transform.Rotate(_rotation_vector);
-            }
-
-            if (changeGravity)
-            {
-                Physics.gravity = transform.up * -9.8f;
-            }
+            StartCoroutine(Rotate(direction));
 
             yield return new WaitForSeconds(1);
-            index = (index + 1) % directions.Length;
+            index = (index + 1) % Directions.Length;
         }
-     }
+    }
+    IEnumerator RotateByTime()
+    {
+        int index = 0;
+        while (true)
+        {
+            var direction = Directions[index];
+            //Debug.Log(direction);
+            yield return new WaitForSeconds(time);
+            
+            StartCoroutine(Rotate(direction));
+
+            index = (index + 1) % Directions.Length;
+        }
+    }
 }
