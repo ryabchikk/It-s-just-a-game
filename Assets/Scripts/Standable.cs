@@ -71,6 +71,8 @@ public class Standable : MonoBehaviour
         if (boxFreezes || !_pressed)
             return;
         _pressed = false;
+        if (other == _enteredCollider && _enteredPickable != null)
+            _enteredPickable.isPlaced = false;
         onUnpressed?.Invoke();
     }
 }
