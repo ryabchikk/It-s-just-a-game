@@ -19,6 +19,7 @@ public class Utility : MonoBehaviour
     {
         Controls.Invert(Axis.Forward);
         Controls.Invert(Axis.Side);
+        Destroy(gameObject);
     }
 
     public void ReverseJump()
