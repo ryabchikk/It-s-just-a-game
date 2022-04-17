@@ -21,6 +21,8 @@ public class FallingJoke : MonoBehaviour
 
     IEnumerator FallCoroutine()
     {
+        var gravity = Physics.gravity;
+        Physics.gravity = new Vector3(0, 0, 0);
         Ray ray = new Ray(checker.parent.position, -checker.up);
         RaycastHit[] hits;
         hits = Physics.RaycastAll(ray);
@@ -41,7 +43,8 @@ public class FallingJoke : MonoBehaviour
         {
             _object.SetActive(true);
         }
-        
+
+        Physics.gravity = gravity;
         var characterController = checker.parent.GetComponent<CharacterController>();
         characterController.enabled = false;
         checker.parent.transform.position = _startingPos;
