@@ -8,8 +8,8 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: f15168ddb8fe3b94ebb82aec77a179fb
-  m_OcclusionCullingData: {fileID: 36300000, guid: dd5684dcbb23e0a479c3b64352728c79, type: 2}
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -3387,7 +3387,7 @@ BoxCollider:
   m_GameObject: {fileID: 1229204114}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.0033303155, y: 0.011197071, z: 0.010152767}
   m_Center: {x: -0.0012952742, y: 0.0057107783, z: -5.9604643e-10}
