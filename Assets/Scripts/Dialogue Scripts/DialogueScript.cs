@@ -37,7 +37,8 @@ public class DialogueScript : MonoBehaviour
         state = startingState;
         textComponent.text = state.GetStateStory();
         background.SetActive(true);
-        mouseLook.Deactivate();
+        Time.timeScale = 0;
+        //mouseLook.Deactivate();
         SetScene();
     }
 
@@ -50,7 +51,10 @@ public class DialogueScript : MonoBehaviour
             onBadEnding?.Invoke(state);
         }
         background.SetActive(false);
-        mouseLook.Activate();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Time.timeScale = 1;
+        //mouseLook.Activate();
     }
 
     public void SetScene()
