@@ -3613,6 +3613,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1680309074}
   - component: {fileID: 1680309073}
+  - component: {fileID: 1680309075}
   m_Layer: 0
   m_Name: Dialogue
   m_TagString: Untagged
@@ -3661,7 +3662,19 @@ MonoBehaviour:
         m_CallState: 2
   onBadEnding:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1680309075}
+        m_TargetAssemblyTypeName: FallingJoke, Assembly-CSharp
+        m_MethodName: FallTrough
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   textComponent: {fileID: 1475339528}
   startingState: {fileID: 11400000, guid: a35742c8b47dce74ebe030e2fbe6030c, type: 2}
   background: {fileID: 1936752527}
@@ -3686,6 +3699,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1680309075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680309072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c53dbaa221d5e94d868c8dd3a23c650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checker: {fileID: 1984362585}
 --- !u!1 &1784360260
 GameObject:
   m_ObjectHideFlags: 0
@@ -4354,6 +4380,11 @@ BoxCollider:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a9d895650f00c5c428c179e1d0a1e344, type: 3}
   m_PrefabInstance: {fileID: 19840978}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1984362585 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4154771411866072864, guid: 49e8f0ff0b67bbc4bbf104c2ea8f238b, type: 3}
+  m_PrefabInstance: {fileID: 4154771413479793631}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2005620068
 GameObject:
