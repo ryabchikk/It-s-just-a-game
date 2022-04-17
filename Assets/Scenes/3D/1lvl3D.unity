@@ -2423,7 +2423,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1119304839}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.1, y: 1.8, z: -5.2}
+  m_LocalPosition: {x: -10.1, y: 13.5, z: -5.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 310474767}
@@ -2606,6 +2606,7 @@ GameObject:
   - component: {fileID: 1173298690}
   - component: {fileID: 1173298692}
   - component: {fileID: 1173298691}
+  - component: {fileID: 1173298693}
   m_Layer: 0
   m_Name: Panel
   m_TagString: Untagged
@@ -2645,7 +2646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.9019608}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2670,6 +2671,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1173298689}
   m_CullTransparentMesh: 1
+--- !u!95 &1173298693
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173298689}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4a338a3613ab2e14a80c0dc4c9df2231, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1205382964 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 109c2da9e80d1ec4c9c03c7d4c13b9c5, type: 3}
@@ -3279,7 +3299,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1400696597}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.66, y: 1.0572226, z: -7.08}
+  m_LocalPosition: {x: 3.66, y: 1.0572226, z: -5.91}
   m_LocalScale: {x: 1.2063407, y: 2.4228, z: 2.586}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3471,6 +3491,10 @@ PrefabInstance:
     - target: {fileID: 879103615181175074, guid: 9df04dcb827523e42b3bd5b456901e7e, type: 3}
       propertyPath: m_Name
       value: door
+      objectReference: {fileID: 0}
+    - target: {fileID: 879103615181175074, guid: 9df04dcb827523e42b3bd5b456901e7e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9df04dcb827523e42b3bd5b456901e7e, type: 3}
@@ -4847,7 +4871,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 678630084750ee44db6bc52d907566ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 1995513791}
+  textAnimator: {fileID: 1995513791}
+  panelAnimator: {fileID: 1173298693}
   text: {fileID: 1995513793}
 --- !u!114 &1995513793
 MonoBehaviour:

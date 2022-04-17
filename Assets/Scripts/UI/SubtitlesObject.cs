@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 internal class SubtitlesObject : MonoBehaviour
 {
-    [SerializeField] private Animator animator;
+    [SerializeField] private Animator textAnimator;
+    [SerializeField] private Animator panelAnimator;
     [SerializeField] private Text text;
     private readonly Queue<string> _notifications = new Queue<string>();
     private bool _appearing;
@@ -20,8 +21,9 @@ internal class SubtitlesObject : MonoBehaviour
     {
         if (_notifications.Count == 0 || _appearing)
             return;
-
+        
         StartCoroutine(Appear());
+        
     }
 
     public void Notify(string n)
@@ -37,16 +39,16 @@ internal class SubtitlesObject : MonoBehaviour
     private IEnumerator Appear()
     {
         _appearing = true;
-        
+        panelAnimator.enabled = true;
         while (_notifications.Count != 0)
         {
-            animator.enabled = true;
+            textAnimator.enabled = true;
             text.text = _notifications.Peek();
             yield return new WaitForSeconds(2.5f);
             _notifications.Dequeue();
-            animator.enabled = false;
+            textAnimator.enabled = false;
         }
-        
+        panelAnimator.enabled =false;
         _appearing = false;
     }
 }
