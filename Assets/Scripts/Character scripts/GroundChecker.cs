@@ -9,6 +9,8 @@ public class GroundChecker : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (other.isTrigger)
+            return;
         if (other != null)
         {
             player.SetOnGround(false);
@@ -17,6 +19,8 @@ public class GroundChecker : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if (other.isTrigger)
+            return;
         if (other != null && other != playerCollider)
         {
             player.SetOnGround(true);
