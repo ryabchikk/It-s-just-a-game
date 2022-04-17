@@ -7,7 +7,7 @@ public class NovelState : ScriptableObject
 {
     [TextArea(14,10)] [SerializeField] string storyText;
     [SerializeField] public string[] Buttons;
-    [SerializeField] State[] nextStates;
+    [SerializeField] NovelState[] nextStates;
     [SerializeField] int sprite;
 
     public string GetStateStory()
@@ -15,7 +15,12 @@ public class NovelState : ScriptableObject
         return storyText;
     }
 
-    public State[] GetNextStates()
+    public int GetSprite()
+    {
+        return sprite;
+    }
+
+    public NovelState[] GetNextStates()
     {
         return nextStates;
     }
