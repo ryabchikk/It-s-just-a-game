@@ -21,4 +21,6 @@ MonoBehaviour:
     \u0435\u0441\u043B\u0438 \u044F \u043B\u0433\u0443!"
   nextStates:
   - {fileID: 11400000, guid: d66b684cb90c705438b4be5f81d2d104, type: 2}
-  final: 1
+  final: 0
+  goodEnding: 0
+  badEnding: 1

@@ -69,7 +69,7 @@ public class DialogueScript : MonoBehaviour
     }
     public void FirstChoice()
     { 
-        if(state.final)
+        if(state.goodEnding || state.badEnding)
         {
             StopDialogue();
         }
@@ -81,7 +81,7 @@ public class DialogueScript : MonoBehaviour
     }
     public void SecondChoice()
     {
-        if(state.final)
+        if(state.goodEnding || state.badEnding)
         {
             StopDialogue();
         }

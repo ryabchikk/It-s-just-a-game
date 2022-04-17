@@ -20,4 +20,6 @@ MonoBehaviour:
   - "(...\u043F\u043E\u0445\u043E\u0436\u0435, \u0431\u0435\u0437 \u0448\u0430\u043D\u0441\u043E\u0432.)"
   nextStates:
   - {fileID: 11400000, guid: d66b684cb90c705438b4be5f81d2d104, type: 2}
-  final: 1
+  final: 0
+  goodEnding: 0
+  badEnding: 1
