@@ -41,4 +41,8 @@ public class Utility : MonoBehaviour
             Destroy(activateObjs[i]);
         }
     }
+    public void ExitGame() 
+    {
+        Application.Quit();
+    }
 }
