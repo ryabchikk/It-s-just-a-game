@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -242,7 +242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 678630084750ee44db6bc52d907566ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 444963840}
+  textAnimator: {fileID: 0}
+  panelAnimator: {fileID: 0}
   text: {fileID: 444963838}
 --- !u!1001 &465532446
 PrefabInstance:
@@ -862,8 +863,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 444963837}
-  m_Father: {fileID: 1537635518}
-  m_RootOrder: 3
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1167,7 +1168,6 @@ Transform:
   - {fileID: 1951969147}
   - {fileID: 656337734}
   - {fileID: 1508654443}
-  - {fileID: 1112005400}
   m_Father: {fileID: 1660415939}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1308,7 +1308,7 @@ GameObject:
   - component: {fileID: 1660415939}
   - component: {fileID: 1660415938}
   m_Layer: 0
-  m_Name: RoomRotater (1)
+  m_Name: RoomRotater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1343,7 +1343,7 @@ Transform:
   m_Children:
   - {fileID: 1537635518}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1772762749
 GameObject:
@@ -1379,6 +1379,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   message: []
+  activateObjs: []
+  destroyObjs: []
 --- !u!65 &1772762751
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1453,7 +1455,7 @@ Transform:
   m_LocalScale: {x: 4.0623, y: 2.4228, z: 2.586}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1772762755
 MonoBehaviour:
