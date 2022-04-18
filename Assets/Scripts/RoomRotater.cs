@@ -18,7 +18,7 @@ public class RoomRotater : MonoBehaviour
     [SerializeField] bool isLocked;
     [SerializeField] bool changeGravity = false;
     private Vector3 _rotation_vector;
-
+    
     public Direction[] Directions = new Direction[] { Direction.Front, Direction.Left, Direction.Left, Direction.Left, Direction.Front, Direction.Up };
 
     public static Vector3 WorldRotationVector(Direction ground) 
