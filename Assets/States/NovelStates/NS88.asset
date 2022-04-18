@@ -22,4 +22,4 @@ MonoBehaviour:
   sprite: 0
   cube_name_box: 0
   player_name_box: 0
-  fin: 0
+  fin: 1
