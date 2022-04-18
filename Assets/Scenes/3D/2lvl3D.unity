@@ -6732,6 +6732,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8576234701150367681, guid: 0e74430c2a6c54c4482b721202a263e5, type: 3}
+      propertyPath: onTrigger.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8576234701150367687, guid: 0e74430c2a6c54c4482b721202a263e5, type: 3}
       propertyPath: m_Size.x
       value: 0.00330265
